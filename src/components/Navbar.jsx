@@ -36,6 +36,21 @@ const Navbar = () => {
               </motion.div>
             </Link>
 
+            <Link to="/domains">
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className={`flex items-center space-x-2 px-4 py-2 rounded-lg transition-colors ${
+                  isActive('/domains') 
+                    ? 'bg-orange-100 text-orange-700' 
+                    : 'text-gray-600 hover:bg-gray-100'
+                }`}
+              >
+                <SafeIcon icon={FiGlobe} className="text-lg" />
+                <span className="font-medium">Domains</span>
+              </motion.div>
+            </Link>
+
             <Link to="/add">
               <motion.div
                 whileHover={{ scale: 1.05 }}

@@ -4,16 +4,17 @@ import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '../common/SafeIcon';
 import { useWebsite } from '../context/WebsiteContext';
 
-const { FiCode, FiCreditCard, FiBookmark, FiTrendingUp, FiLock } = FiIcons;
+const { FiCode, FiCreditCard, FiBookmark, FiTrendingUp, FiLock, FiGlobe } = FiIcons;
 
 const StatsOverview = ({ websites }) => {
-  const { credentials } = useWebsite();
+  const { credentials, domains } = useWebsite();
   
   const ownedSites = websites.filter(site => site.type === 'owned').length;
   const subscriptions = websites.filter(site => site.type === 'subscription').length;
   const tracked = websites.filter(site => site.type === 'tracked').length;
   const total = websites.length;
   const totalCredentials = credentials.length;
+  const totalDomains = domains.length;
 
   const stats = [
     {
@@ -41,6 +42,14 @@ const StatsOverview = ({ websites }) => {
       textColor: 'text-purple-700'
     },
     {
+      label: 'Domains',
+      value: totalDomains,
+      icon: FiGlobe,
+      color: 'bg-orange-500',
+      bgColor: 'bg-orange-50',
+      textColor: 'text-orange-700'
+    },
+    {
       label: 'Credentials',
       value: totalCredentials,
       icon: FiLock,
@@ -52,14 +61,14 @@ const StatsOverview = ({ websites }) => {
       label: 'Total Sites',
       value: total,
       icon: FiTrendingUp,
-      color: 'bg-orange-500',
-      bgColor: 'bg-orange-50',
-      textColor: 'text-orange-700'
+      color: 'bg-red-500',
+      bgColor: 'bg-red-50',
+      textColor: 'text-red-700'
     }
   ];
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
+    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
       {stats.map((stat, index) => (
         <motion.div
           key={stat.label}

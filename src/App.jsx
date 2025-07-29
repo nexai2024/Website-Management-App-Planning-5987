@@ -5,6 +5,8 @@ import Dashboard from './pages/Dashboard';
 import AddWebsite from './pages/AddWebsite';
 import WebsiteDetail from './pages/WebsiteDetail';
 import EditWebsite from './pages/EditWebsite';
+import Domains from './pages/Domains';
+import DomainDetail from './pages/DomainDetail';
 import { WebsiteProvider } from './context/WebsiteContext';
 import './App.css';
 
@@ -20,6 +22,8 @@ function App() {
               <Route path="/add" element={<AddWebsite />} />
               <Route path="/website/:id" element={<WebsiteDetail />} />
               <Route path="/edit/:id" element={<EditWebsite />} />
+              <Route path="/domains" element={<Domains />} />
+              <Route path="/domain/:id" element={<DomainDetail />} />
             </Routes>
           </main>
         </div>

@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { format } from 'date-fns';
 import { useWebsite } from '../context/WebsiteContext';
 import CredentialsList from '../components/CredentialsList';
+import DomainsList from '../components/DomainsList';
 import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '../common/SafeIcon';
 
@@ -308,6 +309,11 @@ const WebsiteDetail = () => {
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Domains Section */}
+      <div className="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden p-8">
+        <DomainsList websiteId={id} />
       </div>
 
       {/* Credentials Section */}
