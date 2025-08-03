@@ -3,6 +3,7 @@ import { useParams, useNavigate, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { format } from 'date-fns';
 import { useWebsite } from '../context/WebsiteContext';
+import DNSManagement from '../components/DNSManagement';
 import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '../common/SafeIcon';
 
@@ -82,7 +83,7 @@ const DomainDetail = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto space-y-8">
+    <div className="max-w-6xl mx-auto space-y-8">
       <div className="flex items-center justify-between">
         <motion.button
           whileHover={{ scale: 1.05 }}
@@ -296,6 +297,11 @@ const DomainDetail = () => {
             </div>
           </div>
         </div>
+      </div>
+
+      {/* DNS Management Section */}
+      <div className="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden p-8">
+        <DNSManagement domainId={id} />
       </div>
     </div>
   );

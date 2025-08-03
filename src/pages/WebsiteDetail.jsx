@@ -5,6 +5,9 @@ import { format } from 'date-fns';
 import { useWebsite } from '../context/WebsiteContext';
 import CredentialsList from '../components/CredentialsList';
 import DomainsList from '../components/DomainsList';
+import SERPTracking from '../components/SERPTracking';
+import LinkedAppsManagement from '../components/LinkedAppsManagement';
+import APIWebhookManagement from '../components/APIWebhookManagement';
 import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '../common/SafeIcon';
 
@@ -33,7 +36,7 @@ const WebsiteDetail = () => {
   }
 
   const handleDelete = () => {
-    if (window.confirm('Are you sure you want to delete this website? All associated credentials will also be deleted.')) {
+    if (window.confirm('Are you sure you want to delete this website? All associated data will also be deleted.')) {
       deleteWebsite(id);
       navigate('/');
     }
@@ -221,7 +224,7 @@ const WebsiteDetail = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto space-y-8">
+    <div className="max-w-6xl mx-auto space-y-8">
       <div className="flex items-center justify-between">
         <motion.button
           whileHover={{ scale: 1.05 }}
@@ -314,6 +317,21 @@ const WebsiteDetail = () => {
       {/* Domains Section */}
       <div className="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden p-8">
         <DomainsList websiteId={id} />
+      </div>
+
+      {/* SERP Tracking Section */}
+      <div className="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden p-8">
+        <SERPTracking websiteId={id} />
+      </div>
+
+      {/* Linked Apps Section */}
+      <div className="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden p-8">
+        <LinkedAppsManagement websiteId={id} />
+      </div>
+
+      {/* APIs & Webhooks Section */}
+      <div className="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden p-8">
+        <APIWebhookManagement websiteId={id} />
       </div>
 
       {/* Credentials Section */}
